@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>competitype</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+            
+            body {
+                font-family: 'Roboto Mono', monospace;
+                background-color: #5c6778;
+                text-align: center;
+                color: white;
+                font-size: 24px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            p {
+                margin: 0.5;
+            }
+            input[type=text] {
+                font-family: 'Roboto Mono', monospace;
+                width: 50%;
+                font-size: 30px;
+                outline: none;
+            }
+            a, button {
+                font-family: 'Roboto Mono', monospace;
+                font-size: 20px;
+                background-color: #5c6778;
+                color: white;
+                border: 2px solid white;
+                border-radius: 5px;
+                outline: none;
+                cursor: pointer;
+                margin-bottom: 10px;
+                text-decoration: none;
+                padding: 5px;
+            }
+            footer {
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+                margin-bottom: 10px;
+            }
+            .correct {
+                color: lightgreen;
+            }
+            .incorrect {
+                color: red;
+            }
+            #name {
+                width: 30%;
+            }
+            .hidden {
+                display: none;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>comptetitype.</h1>
+        <p>do you have what it takes to be the best typer?</p>
+        <p>game will start when you press the start button.</p>
+        <p id="score">Score: 0</p>
+        <p  id="wordDisplay"></p>
+        <input id="wordInput" type="text" disabled autofocus>
+        <p id="timer">Timer: 5s</p>
+        <button onclick="startTimer()">Start</button>
+        <div id="scoreSubmit" class="">
+            <form id="scoreSubmission" class="">
+                <p>Great job! You could submit your score to the leaderboards, or choose not to by playing again.</p>
+                <input type="text" id="name" maxlength="8" placeholder="Enter your name">
+                <button id="submitButton" type="submit">Submit</button>
+            </form>
+        </div>
+        <footer>
+            <a href="./leaderboard.html">Leaderboard</a>
+            <a href="./howtoplay.html">How to play?</a>
+            <a href="./about.html">About the devs!</a>
+        </footer>
+        <script type="text/javascript" src="index.js"></script>
+    </body>
+</html>

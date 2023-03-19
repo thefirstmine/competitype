@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>competitype: how to play</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+            
+            body {
+                font-family: 'Roboto Mono', monospace;
+                background-color: #5c6778;
+                text-align: center;
+                color: white;
+                font-size: 24px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            p {
+                margin: 0.5;
+            }
+            a, button {
+                font-family: 'Roboto Mono', monospace;
+                font-size: 20px;
+                background-color: #5c6778;
+                color: white;
+                border: 2px solid white;
+                border-radius: 5px;
+                outline: none;
+                cursor: pointer;
+                margin-bottom: 10px;
+                text-decoration: none;
+                padding: 5px;
+            }
+            footer {
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+                margin-bottom: 10px;
+            }
+            footer > button {
+                font-size: 20px;
+            }
+            /* align table to center */
+            table {
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 20px;
+            }
+            /* table styling */
+            table {
+                border-collapse: collapse;
+                width: 50%;
+                /* add a border */
+                border: 1px solid white;
+            }
+            th, td {
+                text-align: center;
+                border: 1px solid white;
+                padding: 8px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1>comptetitype.</h1>
+        <h2>leaderboard</h2>
+        <a href="./index.html" id="back">Back to home page</a>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Score</th>
+            </tr>
+        </table>
+        <footer>
+            <a href="./leaderboard.html">Leaderboard</a>
+            <a href="./howtoplay.html">How to play?</a>
+            <a href="./about.html">About the devs!</a>
+        </footer>
+        <script>
+
+            const table = document.getElementsByTagName("table")[0];
+            const fetchWord = () => {
+                return fetch('/api').then((res) => {
+                    return res.json();
+                }).then(data => {
+                    return data
+                }).catch(err => console.error("There was an error trying to get the scores:", err))
+            }
+            
+            const getScores = async () => {
+                const data = await fetchWord();
+                const scores = [];
+                for (let i = 0; i < data.length; i++) {
+                    scores.push({
+                        name: data[i].name,
+                        score: data[i].score
+                    })
+                }
+                return scores;
+            }
+            const scores = getScores();
+
+            scores.then((scores) => {
+                for (let i = 0; i < scores.length; i++) {
+                    const row = table.insertRow(i + 1);
+                    const name = row.insertCell(0);
+                    const score = row.insertCell(1);
+                    name.innerHTML = scores[i].name;
+                    score.innerHTML = scores[i].score;
+                }
+            })
+        </script>
+    </body>
+</html>
