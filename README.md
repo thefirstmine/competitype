@@ -31,7 +31,7 @@ npm install
 
 3. Open .env.example, put in your MongoDB url, your port to use, and rename the file to .env
 
-4. Run the server.
+4. Run the server. It should now be accessible at localhost:PORT/competitype
    
    ```bash
    npm start
