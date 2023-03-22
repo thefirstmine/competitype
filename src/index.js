@@ -86,6 +86,8 @@ let timerInterval;
 
 const startTimer = () => {
     renderWord()
+    time = 5;
+    clearInterval(timerInterval);
     score = 0;
     wordInput.disabled = false;
     scoreSubmit.classList.add("hidden")

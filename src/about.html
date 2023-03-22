@@ -20,7 +20,7 @@
                 list-style-position: inside;
             }
             p {
-                margin: 15px;
+                margin: 5px;
             }
             a, button {
                 font-family: 'Roboto Mono', monospace;
@@ -36,20 +36,41 @@
                 padding: 5px;
             }
             footer {
-                position: fixed;
-                bottom: 0;
                 width: 100%;
+                margin-top: 50px;
                 margin-bottom: 10px;
             }
             footer > button {
                 font-size: 20px;
+            }
+            #img-holder {
+                display: flex;
+                justify-content: space-evenly;
             }
         </style>
     </head>
 
     <body>
         <h1>comptetitype.</h1>
-        <h2>about the devs!</h2>
+        <h2>the devs!</h2>
+
+        <div id="img-holder">
+            <div class="holder">
+                <img src="./img/julian.jpg" alt="Julian" width="350">
+                <p>Julian Nite Yu</p>
+            </div>
+            <div class="holder">
+                <img src="./img/julia.jpg" alt="Julia" width="350">
+                <p>Julia Arista Mustard</p>
+            </div>
+            <div class="holder">
+                <img src="./img/genric.jpg" alt="Genric" width="350">
+                <p>Genric Wayze Garcia</p>
+            </div>
+        </div>
+
+        <h2>references (inspiration!)</h2>
+        <p>https://www.youtube.com/watch?v=R-7eQIHRszQ</p>
 
         <a href="./index.html" id="back">Back to home page</a>
         
